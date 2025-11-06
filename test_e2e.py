@@ -3,7 +3,7 @@ import json
 import pytest
 
 from page_objects.login_page import LoginPage
-with open('../data/test_e2e.json') as json_file:
+with open('data/test_e2e.json') as json_file:
     test_data = json.load(json_file)
     test_list = test_data["data"]
 @pytest.mark.regression
