@@ -6,7 +6,7 @@ colorama==0.4.6
 execnet==2.1.1
 h11==0.16.0
 idna==3.11
-iniconfig==1.1.1
+iniconfig==2.3.0
 Jinja2==3.1.6
 MarkupSafe==3.0.3
 numpy  # Убрана строгая версия
@@ -37,3 +37,4 @@ websocket-client==1.9.0
 wsproto==1.2.0
 
 xdist==0.0.2
+
