@@ -52,7 +52,7 @@ def browser_configuration(request):
     driver.quit()
 
 @pytest.hookimpl(hookwrapper=True)
-def pytest_runtest_make_report(item):
+def pytest_runtest_makereport(item):
     pytest_html = item.config.pluginmanager.getplugin("html")
     outcome = yield
     report = outcome.get_result()
