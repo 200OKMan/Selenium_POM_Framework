@@ -31,5 +31,6 @@ class ShopPage(BrowserUtils):
 
     def get_cart_amount(self):
         wait = WaitHelper(self.driver)
+        wait.text_to_be_present_in_element(self.go_to_cart_button, "1")
         cart_amount = wait.wait_for_visible(self.go_to_cart_button).text
         return int(''.join([item for item in cart_amount if item.isdigit()]))
