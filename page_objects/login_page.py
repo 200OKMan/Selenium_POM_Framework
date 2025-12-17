@@ -15,6 +15,5 @@ class LoginPage(BrowserUtils):
     def login(self, username, password):
         self.driver.find_element(*self.username_locator).send_keys(username)
         self.driver.find_element(*self.password_locator).send_keys(password)
-        login_button = self.driver.find_element(*self.login_locator)
-        self.driver.execute_script("arguments[0].click();", login_button)
+        self.driver.find_element(*self.login_locator).click()
         return ShopPage(self.driver)
