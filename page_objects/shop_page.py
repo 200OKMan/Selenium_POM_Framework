@@ -11,8 +11,7 @@ class ShopPage(BrowserUtils):
         super().__init__(driver)
         self.driver = driver
         self.product_card = (By.XPATH, "//div[@class = 'card h-100']/div/h4")
-        self.add_button = (By.XPATH, "//div[@class ='card-footer']/button")
-        # self.product_name = "Blackberry"
+        self.add_button = (By.XPATH, "./ancestor::div[@class='card h-100']//button")
         self.shop_link = (By.XPATH, "//a[contains(@href, 'shop')]")
         self.go_to_cart_button = (By.XPATH, "//a[contains(@class, 'btn-primary')]")
 
@@ -26,7 +25,9 @@ class ShopPage(BrowserUtils):
         products = wait.wait_for_visible_all(self.product_card, 20)
         for product in products:
             if product.text == product_name:
-                wait.wait_for_clickable(self.add_button).click()
+                target_button = product.find_element(By.XPATH, "./ancestor::div[@class='card h-100']//button")
+                target_button.click()
+                break
         return ShopPage(self.driver)
 
     def get_cart_amount(self):
